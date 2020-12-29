@@ -1,0 +1,22 @@
+import java.lang.StringBuilder;
+class Solution{
+
+  static String toCamelCase(String s){
+    String[] v = s.split("");
+    StringBuilder sb = new StringBuilder();
+    boolean newWord = false;
+    for (int x = 0; x <v.length; x++) {
+      if(v[x].equals("-") || v[x].equals("_")) {
+        newWord = true;
+      } 
+      else {
+        if (newWord) {
+          v[x] = v[x].toUpperCase();
+        }
+        sb.append(v[x]);
+        newWord = false;
+      }
+    }
+    return sb.toString();
+  }
+}
